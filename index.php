@@ -49,8 +49,28 @@ $faq = [
         "answere" => "In alcuni casi sì. Quando fai clic su un risultato della Ricerca Google, il tuo browser web potrebbe reindirizzare alla pagina web di destinazione anche l'indirizzo Internet, o URL, della pagina dei risultati di ricerca sotto forma di URL referrer. Talvolta, l'URL della pagina dei risultati di ricerca potrebbe contenere la query di ricerca che hai inserito. Se utilizzi la ricerca SSL (la funzione di ricerca criptata di Google), nella maggior parte dei casi i termini di ricerca non vengono inviati come parte dell'URL negli URL referrer. Questo comportamento può fare eccezione, ad esempio se utilizzi alcuni browser meno diffusi. Ulteriori informazioni sulla ricerca SSL sono disponibili qui. Le query di ricerca o le informazioni contenute nell'URL referrer potrebbero essere disponibili mediante Google Analytics o un'API (Application Programming Interface). Inoltre, gli inserzionisti potrebbero ricevere informazioni relative all' esatte parole chiave che hanno determinato il clic su un annuncio.",
     ],
 ];
-$voiceHeader = ["introduzione", "norme sulla privacy", "termini di servizio", "tecnologie", "domante frequenti"];
-
+$voiceHeader = [
+    [
+    "text" => "introduzione",
+    "active" => false
+    ],
+    [
+        "text" => "norme sulla privacy",
+        "active" => false
+    ],
+    [
+        "text" => "termini di servizio",
+        "active" => false
+    ],
+    [
+        "text" => "tecnologie",
+        "active" => false
+    ],
+    [
+        "text" => "domante frequenti",
+        "active" => true
+    ]
+    ];
 ?>
 
 <!DOCTYPE html>
@@ -73,23 +93,22 @@ $voiceHeader = ["introduzione", "norme sulla privacy", "termini di servizio", "t
 
 <body>
     <div class="header">
-        <div class="up_header d-flex">
+        <div class="up_header d-flex align-items-center justify-content-between col-2">
             <div class="header_img">
                 <img class="img-fluid" src="./assets/img/logo_google.png" alt="dsafsad">
             </div>
             <h2>Privacy e termini</h2>
         </div>
-        <div class="low_header">
-            <?php for ($i=0; $i < count($voiceHeader); $i++) { ?>
-                    
-            } ?>
+        <div class="low_header d-flex">
+            <?php foreach ($voiceHeader as $voice => $value) { ?>
+                <?php if ($value["active"] === true) { ?>
+                    <h3 class="active"><?php echo $value["text"]; ?></h3>
+                <?php } else { ?>
+                    <h3><?php echo $value["text"]; ?></h3>
+                <?php } ?>
+            <?php } ?>
         </div>
-
-
-
-
-        
-
+    <hr>
     </div>
 
     

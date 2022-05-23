@@ -12,3 +12,14 @@
 .header>h2 {
     margin-left: 25px;
 }
+
+.low_header>h3 {
+    margin-right: 30px;
+}
+
+.active {
+    position: relative;
+    color: blue;
+    padding-bottom: 10px;
+    border-bottom: 3px solid blue;
+}
